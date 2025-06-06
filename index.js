@@ -5,13 +5,13 @@ let checkingAge = (event) => {
     let max=new Date(
         today.getFullYear()-18,
         today.getMonth(),
-        today.getDate()
+        today.getDate()+1
     );
     //minimum date
     let min =new Date(
         today.getFullYear()-55,
         today.getMonth(),
-        today.getDate()
+        today.getDate()+1
     );
     const formatDate = (date) => date.toISOString().split('T')[0];
     //to change attribute of the element 
