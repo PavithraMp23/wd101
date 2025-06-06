@@ -1,19 +1,25 @@
 let checkingAge = (event) => {
     let dobIn= document.getElementById('dob');
-    let today = new Date();
+    const today = new Date();
      //maximum date
     let max=new Date(
         today.getFullYear()-18,
         today.getMonth(),
-        today.getDate()+1
+        today.getDate()
     );
     //minimum date
     let min =new Date(
         today.getFullYear()-55,
         today.getMonth(),
-        today.getDate()+1
+        today.getDate()
     );
-    const formatDate = (date) => date.toISOString().split('T')[0];
+    const formatDate = (date) => {
+  let year = date.getFullYear();
+  let month = String(date.getMonth() + 1).padStart(2, '0');
+  let day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
     //to change attribute of the element 
     dobIn.setAttribute('max', formatDate(max));
     dobIn.setAttribute('min', formatDate(min));
