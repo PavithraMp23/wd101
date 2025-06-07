@@ -1,4 +1,4 @@
-let checkingAge = (event) => {
+/*let checkingAge = (event) => {
     let dobIn= document.getElementById('dob');
     const today = new Date();
      //maximum date
@@ -23,10 +23,10 @@ let checkingAge = (event) => {
     //to change attribute of the element 
     dobIn.setAttribute('max', formatDate(max));
     dobIn.setAttribute('min', formatDate(min));
-}
+}*/
 
 window.addEventListener('DOMContentLoaded',()=> {
-    checkingAge();
+    //checkingAge();
     tableEntry();
 });
 
@@ -51,6 +51,24 @@ let saveUserFrom = (event ) => {
     const password = document.getElementById("password").value;
     const dob = document.getElementById("dob").value;
     const acceptTerms = document.getElementById("acceptTerms").checked;
+    const today = new Date();
+    const dobDate = new Date(dob);
+    let max = new Date(
+        today.getFullYear() - 18,
+        today.getMonth(),
+        today.getDate()
+    );
+    let min = new Date(
+        today.getFullYear() - 55,
+        today.getMonth(),
+        today.getDate()
+    );
+    
+    if (dobDate < min || dobDate > max) {
+        alert("Age must be between 18 and 55 years.");
+        return;
+    }
+
     const entry= {
         name:name,
         email:email,
